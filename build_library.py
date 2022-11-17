@@ -6,7 +6,7 @@ NOTE: ALL methods for the Library class go in the library.py script
 '''
 
 # 1.0 TODO: Import the Library class
-from dbm.ndbm import library
+
 from library import Library
 
 # 2.1 TODO: In `library.py`:
@@ -17,7 +17,7 @@ from library import Library
 # 2.2 TODO: In this file:
 #   Create an instance of the `Library` class called `my_library`.
 my_library = Library()
-print(my_library)
+
 
 
 # 2.3 TODO: In this file:
@@ -44,19 +44,21 @@ print(type(my_library.books))
 #       Sapiens - Yuval Noah Harari
 #       Braiding Sweetgrass - Robin Wall Kimmerer
 #       The Warmth of Other Suns - Isabel Wilkerson
-book = my_library
-book.add_title("")
-book.add_title("")
-book.add_title("")
-book.add_title("")
+my_library.add_title('The Body Keeps the Score', 'Bessel van der Kolk')
+my_library.add_title('Sapiens', 'Yuval Noah Harari')
+my_library.add_title('Braiding Sweetgrass', 'Robin Wall Kimmerer')
+my_library.add_title('The Warmth of Other Suns', 'Isabel Wilkerson')
+
 
 # 3.3 TODO: Print the `books` attribute of my_library again to make sure your books have been added.
 print(my_library.books)
 
 # 3.4 TODO: Huh. That looks a little weird... Loop through the `books` attribute and print each
 #   one out separately instead.
-for i in my_library.books:
-    print(f"{i}/n")
+def print_books():
+    for i in my_library.books:
+        print(i)
+print_books()
 
 # 4.1 TODO: In `library.py`:
 #   Fill out the `count_books` method to get the number of books in an instance of the `Library` class.
@@ -79,12 +81,14 @@ print(my_library.count_books())
 
 # 5.2 TODO: In this script:
 #   Once you have finished the method, remove 'Braiding Sweetgrass' from `my_library`.
-print(my_library.remove_title('Braiding Sweetgrass'))
+my_library.remove_title('Braiding Sweetgrass')
 
 # 5.3 TODO: In this script:
 #   Repeat the loop you wrote in 3.4 to check if it worked.
-for i in my_library.books:
-    print(f"{i}/n")
+def print_books():
+    for i in my_library.books:
+        print(i)
+print_books()
 # We've now used that loop twice, and any time we want to see the titles in our library,
 #   we'll probably want to use it again. That tells us something: the loop code is a pretty good
 #   candidate to turn into a method of the `Library` class. So let's do it!
@@ -99,7 +103,7 @@ for i in my_library.books:
 
 # 6.2 TODO: In this file:
 #   This time, call your library's `display_books` method to see if it works.
-Library.display_books()
+my_library.display_books()
 
 # 7.1 TODO: In this script:
 #   Instantiate another instance of the `Library` class called `nyt_bestsellers`
@@ -108,8 +112,8 @@ nyt_bestsellers = Library()
 # 7.2 TODO: In this script:
 #   Add two books of your choosing from the New York Times best sellers lists to nyt_bestsellers using the .add_title() method
 #   You can find NYT books here: https://www.nytimes.com/books/best-sellers/
-nyt_bestsellers.add_title('No Plan B')
-nyt_bestsellers.add_title('It Ends With Us')
+nyt_bestsellers.add_title('No Plan B', 'Test')
+nyt_bestsellers.add_title('Game Plan', 'Test')
 
 # 7.3 TODO: In this script:
 #   Call the `display_books` method on the `nyt_bestsellers` Library object.
